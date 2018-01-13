@@ -11,6 +11,7 @@ const server = express()
 import { schema } from './schema'
 
 server.use(cors())
+
 server.use('/graphql', bodyParser.json(), graphqlExpress({
 	schema
 }))
