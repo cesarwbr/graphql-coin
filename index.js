@@ -3,12 +3,14 @@ import {
 	graphiqlExpress
 } from 'graphql-server-express'
 import bodyParser from 'body-parser'
+import cors from 'cors'
 import express from 'express'
 
 const server = express()
 
 import { schema } from './schema'
 
+server.use(cors())
 server.use('/graphql', bodyParser.json(), graphqlExpress({
 	schema
 }))
