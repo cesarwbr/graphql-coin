@@ -56,6 +56,7 @@ export const resolvers = {
 	Subscription: {
 		priceChanged: {
 			subscribe: withFilter(() => pubsub.asyncIterator('priceChanged'), (payload, variables) => {
+				console.log('payload', payload, 'variables', variables)
 				return payload.name === variables.name
 			})
 		}
