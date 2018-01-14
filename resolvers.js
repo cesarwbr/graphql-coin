@@ -45,10 +45,12 @@ export const resolvers = {
 
 				return [{
 					name: 'BTC',
+					displayName: 'Bitcon',
 					price: coins.BTC.USD,
 					image: 'https://seeklogo.com/images/B/bitcoin-logo-DDAEEA68FA-seeklogo.com.png'
 				}, {
 					name: 'ETH',
+					displayName: 'Ethereum',
 					price: coins.ETH.USD,
 					image: 'https://www.ethereum.org/images/logos/ETHEREUM-ICON_Black.png'
 				}]

@@ -4,7 +4,8 @@ import { resolvers } from './resolvers'
 const typeDefs = `
 type Coin {
 	name: ID!
-	price: Float,
+	displayName: String
+	price: Float
 	image: String
 }
 type Query {
