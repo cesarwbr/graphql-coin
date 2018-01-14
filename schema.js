@@ -9,6 +9,9 @@ type Coin {
 type Query {
 	coins: [Coin]
 }
+type Subscription {
+	priceChanged(name: ID!): Coin
+}
 `
 
 const schema = makeExecutableSchema({ typeDefs,  resolvers })
