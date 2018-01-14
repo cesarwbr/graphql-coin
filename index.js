@@ -24,7 +24,7 @@ console.log('domain', process.env.DOMAIN)
 
 server.use('/graphiql', graphiqlExpress({
 	endpointURL: '/graphql',
-	subscriptionsEndpoint: `ws://graphql-coin.herokuapp.com:${PORT}/subscriptions`
+	subscriptionsEndpoint: `ws://graphql-coin.herokuapp.com/subscriptions`
 }))
 
 const ws = createServer(server)
