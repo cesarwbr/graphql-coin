@@ -20,6 +20,8 @@ server.use('/graphql', bodyParser.json(), graphqlExpress({
 	schema
 }))
 
+console.log('domain', process.env.DOMAIN)
+
 server.use('/graphiql', graphiqlExpress({
 	endpointURL: '/graphql',
 	subscriptionsEndpoint: `ws://localhost:${PORT}/subscriptions`
