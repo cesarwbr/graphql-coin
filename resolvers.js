@@ -12,7 +12,13 @@ const coinsObj = [
     displayName: 'Bitcon',
     image:
       'https://seeklogo.com/images/B/bitcoin-logo-DDAEEA68FA-seeklogo.com.png'
-  },
+	},
+	{
+		id: 'bchusd',
+    name: 'BCH',
+    displayName: 'Bitcon Cach',
+    image: 'https://walletgenerator.net/logos/bitcoincash.png'
+	},
   {
     id: 'xrpusd',
     name: 'XRP',
@@ -66,14 +72,18 @@ export const resolvers = {
 				return Promise.all(results.map(res => res.json()))
 			})
 			.then(coins => {
-				console.log('coins', coins)
 				return coins.map((coin, index) => {
-					console.log('coin', coin)
+					const last = parseFloat(coin.last)
+					const open = parseFloat(coin.open)
+
+					const change = (100 * (last - open)) / last
 					return ({
             name: coinsObj[index].name,
             displayName: coinsObj[index].displayName,
             price: parseFloat(coin.last),
-            image: coinsObj[index].image
+						image: coinsObj[index].image,
+						open,
+						change
 					})
 				})
         })
@@ -84,7 +94,6 @@ export const resolvers = {
       subscribe: withFilter(
         () => pubsub.asyncIterator('priceChanged'),
         (payload, variables) => {
-          console.log('payload', payload, 'variables', variables)
           return payload.name === variables.name
         }
       )

@@ -7,6 +7,8 @@ type Coin {
 	displayName: String
 	price: Float
 	image: String
+	change: Float
+	open: Float
 }
 type Query {
 	coins: [Coin]
